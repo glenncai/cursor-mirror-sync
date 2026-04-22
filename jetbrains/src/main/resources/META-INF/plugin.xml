@@ -1,0 +1,32 @@
+<idea-plugin require-restart="false">
+    <id>com.glenncai.cursormirrorsync</id>
+    <name>Cursor Mirror Sync</name>
+    <vendor url="https://github.com/glenncai">Glenn Cai</vendor>
+    <description><![CDATA[
+        Stop losing your place when switching between VSCode and JetBrains IDEs
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <change-notes><![CDATA[
+        Version 1.0.0
+    ]]></change-notes>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Status bar widget factory -->
+        <statusBarWidgetFactory
+            implementation="com.glenncai.cursormirrorsync.ui.StatusBarWidgetFactory"
+            id="CursorMirrorSync"/>
+
+        <!-- Notification group -->
+        <notificationGroup id="Cursor Mirror Sync" displayType="BALLOON"/>
+
+        <!-- Settings configurable -->
+        <projectConfigurable
+            parentId="tools"
+            instance="com.glenncai.cursormirrorsync.ui.SettingsConfigurable"
+            id="CursorMirrorSyncConfigurable"
+            displayName="Cursor Mirror Sync"/>
+
+        <!-- Post-startup activity that initializes SyncService for each opened project -->
+        <postStartupActivity
+            implementation="com.glenncai.cursormirrorsync.SyncPlugin"/>
+    </extensions>
+</idea-plugin>
