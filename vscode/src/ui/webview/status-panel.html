@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src {{cspSource}} 'unsafe-inline'; script-src {{cspSource}} 'unsafe-inline'; img-src {{cspSource}};"
+    />
+    <title>Cursor Mirror Sync Connection Status</title>
+    <link rel="stylesheet" href="{{cssUri}}" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Cursor Mirror Sync</h1>
+      <p>Stop losing your place when switching between VSCode and JetBrains IDEs</p>
+    </div>
+
+    <div class="connections-container">
+      <h2>Project Connections</h2>
+      <p class="section-description">
+        All workspace folders are automatically connected. You can reassign ports if needed
+      </p>
+      <div id="connections-list">
+        <div class="loading-state">
+          <div class="loading-spinner"></div>
+          <span>Loading connections...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-container">
+      <h2>Synchronization Settings</h2>
+      <div class="panel-item">
+        <div class="setting-info">
+          <div class="setting-name">Text Selection Sync</div>
+          <div class="setting-description">
+            Synchronize text selections between VSCode and JetBrains IDEs in real-time
+          </div>
+        </div>
+        <div class="setting-control">
+          <label class="toggle-switch">
+            <input type="checkbox" id="selection-sync-toggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{jsUri}}"></script>
+  </body>
+</html>

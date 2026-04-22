@@ -1,0 +1,91 @@
+# Cursor Mirror Sync configuration
+*.cursor-mirror-sync.json
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+
+# IDE files
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env*
+
+# Gradle
+.gradle/
+!**/gradle/wrapper/
+
+# VSCode test files
+.vscode-test/
+.vscode-test.mjs
+
+# JetBrains plugin development
+.intellijPlatform/
+.kotlin/
+.qodana/
+*.ipr
+*.iws
+sandbox/
+sandbox-*/
+pluginVerifier/
+verification-metadata.xml
+plugin-*.zip
+plugin-*.jar
+
+# Plugin development specific
+plugin.xml.backup
+META-INF/plugin.xml.backup
+
+# Additional build outputs
+classes/
+bin/
+generated/
+target/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Local configuration
+local.properties
+gradle.properties.local
+
+# Plugin signing certificates
+*.p12
+*.jks
+*.keystore
+private.pem
+chain.crt
+
+# Package manager lock files (keep yarn.lock for reproducible builds)
+package-lock.json
+
+# Cache directories
+.cache/
+*.cache
+
+# VSCode workspace settings (keep development settings but ignore user-specific ones)
+.vscode/settings.json
+!vscode/.vscode/
+
+# Prettier configuration (keep project-specific)
+!vscode/.prettierrc
+
+# Additional temporary files
+*.bak
+*.backup

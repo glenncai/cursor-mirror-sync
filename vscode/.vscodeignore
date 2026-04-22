@@ -1,0 +1,28 @@
+# Development files
+.vscode/**
+.vscode-test/**
+.vscode-test.mjs
+out/**
+node_modules/**
+src/**
+
+# Configuration files
+.gitignore
+.yarnrc
+.prettierrc
+webpack.config.js
+**/tsconfig.json
+**/eslint.config.mjs
+
+# Lock files
+yarn.lock
+
+# Documentation
+vsc-extension-quickstart.md
+
+# Source maps and TypeScript
+**/*.map
+**/*.ts
+
+# Test files
+**/.vscode-test.*

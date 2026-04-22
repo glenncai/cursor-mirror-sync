@@ -1,0 +1,29 @@
+{
+  "files.exclude": {
+    "out": false,
+    "dist": false,
+    "node_modules": true,
+    "*.vsix": true
+  },
+  "search.exclude": {
+    "out": true,
+    "dist": true,
+    "node_modules": true
+  },
+  "typescript.tsc.autoDetect": "off",
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.suggest.autoImports": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.workingDirectories": ["${workspaceFolder}"],
+  "eslint.format.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

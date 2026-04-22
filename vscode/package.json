@@ -1,0 +1,148 @@
+{
+  "name": "cursor-mirror-sync",
+  "displayName": "Cursor Mirror Sync",
+  "description": "Stop losing your place when switching between VSCode and JetBrains IDEs",
+  "version": "1.0.0",
+  "publisher": "glenncai",
+  "author": "Glenn Cai",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glenncai/cursor-mirror-sync.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "vscode",
+    "cursor",
+    "IntelliJ",
+    "JetBrains",
+    "sync",
+    "mirror",
+    "WebStorm",
+    "PyCharm",
+    "ide",
+    "real-time",
+    "position",
+    "productivity",
+    "cross-ide",
+    "integration",
+    "multi-project"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursor-mirror-sync.openConnectionManager",
+        "title": "View Connection Status",
+        "category": "Cursor Mirror Sync"
+      },
+      {
+        "command": "cursor-mirror-sync.toggleSelectionSync",
+        "title": "Toggle Text Selection Sync",
+        "category": "Cursor Mirror Sync"
+      },
+      {
+        "command": "cursor-mirror-sync.showLogs",
+        "title": "Show Logs",
+        "category": "Cursor Mirror Sync"
+      }
+    ],
+    "configuration": {
+      "title": "Cursor Mirror Sync",
+      "properties": {
+        "cursor-mirror-sync.autoConnect": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically attempt to connect projects on startup"
+        },
+        "cursor-mirror-sync.portRange": {
+          "type": "object",
+          "default": {
+            "min": 3000,
+            "max": 9999
+          },
+          "properties": {
+            "min": {
+              "type": "integer",
+              "minimum": 3000,
+              "maximum": 9999,
+              "description": "Lower bound of the WebSocket port range (inclusive)"
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 3000,
+              "maximum": 9999,
+              "description": "Upper bound of the WebSocket port range (inclusive)"
+            }
+          },
+          "required": [
+            "min",
+            "max"
+          ],
+          "additionalProperties": false,
+          "description": "Port range for WebSocket connections (3000-9999, must match JetBrains plugin)"
+        },
+        "cursor-mirror-sync.enableSelectionSync": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable text selection synchronization between IDEs"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run check:all",
+    "lint": "eslint src --ext .ts",
+    "lint:check": "eslint src --ext .ts --max-warnings 0",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.{ts,js,css,html}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,css,html}\"",
+    "check:all": "yarn format:check && yarn lint:check",
+    "fix:all": "yarn format && yarn lint:fix",
+    "test": "vscode-test",
+    "build-vsix": "vsce package",
+    "install-local": "code --install-extension cursor-mirror-sync-1.0.0.vsix --force",
+    "build-and-install": "yarn build-vsix && yarn install-local"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.80.0",
+    "@types/ws": "^8.5.13",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "copy-webpack-plugin": "^13.0.1",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.9.2",
+    "@vscode/vsce": "^3.2.1",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.9",
+    "utf-8-validate": "^6.0.5"
+  }
+}
